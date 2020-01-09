@@ -60,7 +60,7 @@
           <a href>没人能预知未来，所以只能认真地把握生活中的每个瞬间</a>
         </div>
         <div>
-          <div @click="handleadd" :class="{active:add}">点击</div>
+          <div @click="add=!add" :class="{active:add}">点击</div>
         </div>
       </div>
       <div class="map">aaaaaaaaaaaaaaaaaaaaa</div>
@@ -86,9 +86,6 @@ export default {
     };
   },
   methods: {
-    handleadd(){
-      this.add = !this.add
-    },
     querySearch(queryString, cb) {
       var restaurants = this.restaurants;
       var results = queryString
