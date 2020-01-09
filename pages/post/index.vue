@@ -2,7 +2,7 @@
   <div class="post">
     <!-- 城市菜单列表 -->
     <div class="citylist">
-      <div >
+      <div>
         <span>热门城市</span>
         <i class="el-icon-arrow-right right"></i>
       </div>
@@ -25,10 +25,10 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       Clist: false
-    }
+    };
   }
 };
 </script>
@@ -42,6 +42,12 @@ export default {
   border: 1px solid #ddd;
   border-bottom: none;
   border-radius: none;
+  :hover {
+    color: orange;
+    .right{
+      color: orange;
+    }
+  }
   > div {
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
@@ -60,7 +66,7 @@ export default {
   }
 }
 
-.Clist{
+.Clist {
   color: orange;
 }
 </style>
