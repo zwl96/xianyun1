@@ -13,16 +13,14 @@
         >
           <span>{{item.type}}</span>
           <i class="el-icon-arrow-right right1"></i>
-        </div>
-      </div>
-      <div :class="{cll:true,active:cll}" v-if="city">
+          <div :class="{cll:true,active:cll}">
         <ul>
-          <li
-            v-for="(item,index) in city"
-            :key="index"
-          >{{item.children.length}}{{item.children[index].city}}</li>
+          <li>{{item.children.length}}{{item.children[index].city}}</li>
         </ul>
       </div>
+        </div>
+      </div>
+      
       <!-- 推荐城市 -->
       <div class="re-city">
         <p class="re-city-header">推荐城市</p>
