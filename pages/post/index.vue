@@ -13,14 +13,15 @@
         >
           <span>{{item.type}}</span>
           <i class="el-icon-arrow-right right1"></i>
+          
           <div :class="{cll:true,active:cll}">
-        <ul>
-          <li>{{item.children.length}}{{item.children[index].city}}</li>
-        </ul>
-      </div>
+            <ul>
+              <li>{{item.children.length}}{{item.children[index].city}}</li>
+            </ul>
+          </div>
         </div>
       </div>
-      
+
       <!-- 推荐城市 -->
       <div class="re-city">
         <p class="re-city-header">推荐城市</p>
@@ -30,9 +31,14 @@
     </div>
     <!-- 右边 -->
     <div class="right">
-      <el-input class="search" suffix-icon='el-icon-search' placeholder="请输入想去的地方，比如：‘广州’"></el-input>
+      <el-input class="search" suffix-icon="el-icon-search" placeholder="请输入想去的地方，比如：‘广州’"></el-input>
       <div class="search-c">
-        <span>推荐：<a href="#">广州</a><a href="#">上海</a><a href="#">北京</a></span>
+        <span>
+          推荐：
+          <a href="#">广州</a>
+          <a href="#">上海</a>
+          <a href="#">北京</a>
+        </span>
       </div>
     </div>
   </div>
@@ -122,19 +128,21 @@ body {
 
 .cll {
   position: absolute;
-  top: 80px;
-  left: 408px;
+  top: -99999px;
+  left: -99999px;
   color: blue;
-  opacity: 0;
+  // opacity: 0;
   border: 1px solid #cccccc;
   background-color: white;
   z-index: 2;
 }
 .cll.active {
+  top: 80px;
+  left: 408px;
   font-size: 14px;
   line-height: 40px;
   color: #ccc;
-  opacity: 1;
+  // opacity: 1;
 }
 .cll.cityactive {
   border-right: none !important;
@@ -158,20 +166,19 @@ body {
   font-weight: 400;
 }
 
-.search{
+.search {
   border: 3px solid orange;
-  
 }
-.search-c{
+.search-c {
   margin-top: 10px;
   font-size: 12px;
   color: #666;
-  a{
+  a {
     margin-right: 10px;
     color: #666;
   }
 }
-.search-c a:hover{
+.search-c a:hover {
   color: orange;
 }
 </style>
