@@ -13,12 +13,12 @@
         >
           <span>{{item.type}}</span>
           <i class="el-icon-arrow-right right1"></i>
-          
-          <div :class="{cll:true,active:cll}">
-            <ul>
-              <li>{{item.children.length}}{{item.children[index].city}}</li>
-            </ul>
-          </div>
+        </div>
+        <!-- 右边 -->
+        <div v-for="(item,index) in city" :key="index" :class="{cll:true,active:cll}">
+          <ul>
+            <li>{{item.children.city}}0000000</li>
+          </ul>
         </div>
       </div>
 
@@ -34,7 +34,7 @@
       <!-- 搜索 -->
       <!-- <el-input class="search" v-model="searchN" suffix-icon="el-icon-search" placeholder="请输入想去的地方，比如：‘广州’"></el-input> -->
       <div>
-        <input type="search" class="search" v-model="searchN" placeholder="请输入想去的地方，比如：‘广州’">
+        <input type="search" class="search" v-model="searchN" placeholder="请输入想去的地方，比如：‘广州’" />
         <i class="el-icon-search search-icon"></i>
       </div>
       <div class="search-c">
@@ -44,6 +44,14 @@
           <a href="#">上海</a>
           <a href="#">北京</a>
         </span>
+      </div>
+      <!-- 推荐攻略 -->
+      <div class="strategy">
+        <h4>推荐攻略</h4>
+        <el-button type="primary" class="strategy-btn" @click="handlewrite">
+          <i class="el-icon-edit"></i>
+          写游记
+        </el-button>
       </div>
     </div>
   </div>
@@ -55,7 +63,7 @@ export default {
     return {
       cll: false,
       city: [],
-      searchN:''
+      searchN: ""
     };
   },
   mounted() {
@@ -72,6 +80,12 @@ export default {
     },
     handleMouseleave() {
       this.cll = false;
+    },
+    handlewrite(){
+      this.$router.push({
+        path: "/post/indexwrite",
+        query: this.form
+      });
     }
   }
 };
@@ -192,26 +206,56 @@ body {
 .search-c a:hover {
   color: orange;
 }
-.search-icon{
+.search-icon {
   position: absolute;
   top: 10px;
   right: 10px;
   font-size: 25px;
   font-weight: 700;
   color: orange;
-
 }
+
+.strategy{
+  margin-top: 20px;
+  // padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  justify-content:space-between;
+  align-items: center;
+  h4{
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 700;
+    color: orange;
+    border-bottom: 2px solid orange;
+    padding-bottom: 20px;
+  }
+  .strategy-btn{
+    // display: inline-block;
+    float: right;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 .clearfix::before,
-.clearfix:after{
-content:'';
-display:table;
+.clearfix:after {
+  content: "";
+  display: table;
 }
-.clearfix:after{
-clear:both;
+.clearfix:after {
+  clear: both;
 }
-.clearfix{
-*zoom:1;
+.clearfix {
+  *zoom: 1;
 }
 </style>
