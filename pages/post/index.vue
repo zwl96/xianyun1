@@ -31,7 +31,12 @@
     </div>
     <!-- 右边 -->
     <div class="right">
-      <el-input class="search" suffix-icon="el-icon-search" placeholder="请输入想去的地方，比如：‘广州’"></el-input>
+      <!-- 搜索 -->
+      <!-- <el-input class="search" v-model="searchN" suffix-icon="el-icon-search" placeholder="请输入想去的地方，比如：‘广州’"></el-input> -->
+      <div>
+        <input type="search" class="search" v-model="searchN" placeholder="请输入想去的地方，比如：‘广州’">
+        <i class="el-icon-search search-icon"></i>
+      </div>
       <div class="search-c">
         <span>
           推荐：
@@ -49,7 +54,8 @@ export default {
   data() {
     return {
       cll: false,
-      city: []
+      city: [],
+      searchN:''
     };
   },
   mounted() {
@@ -168,6 +174,11 @@ body {
 
 .search {
   border: 3px solid orange;
+  width: 100%;
+  outline: none;
+  line-height: 40px;
+  box-sizing: border-box;
+  padding: 0 15px;
 }
 .search-c {
   margin-top: 10px;
@@ -180,5 +191,27 @@ body {
 }
 .search-c a:hover {
   color: orange;
+}
+.search-icon{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 25px;
+  font-weight: 700;
+  color: orange;
+
+}
+
+
+.clearfix::before,
+.clearfix:after{
+content:'';
+display:table;
+}
+.clearfix:after{
+clear:both;
+}
+.clearfix{
+*zoom:1;
 }
 </style>
